@@ -1,0 +1,12 @@
+server:
+  port: 7091
+spring:
+  application:
+    name: msvc-doctor
+
+eureka:
+  instance:
+    hostname: msvc-eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7092/eureka

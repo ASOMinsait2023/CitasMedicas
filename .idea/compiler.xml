@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="CitasMedicas-Especialidades" />
+        <module name="CitasMedicas-Doctor" />
+        <module name="CitasMedicas-Config" />
+        <module name="CitasMedicas-Paciente" />
+        <module name="CitasMedicas-Eureka" />
+        <module name="CitasMedicas-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CitasMedicas-Gateway" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CitasMedicas" options="" />
+      <module name="CitasMedicas-Config" options="-parameters" />
+      <module name="CitasMedicas-Doctor" options="-parameters" />
+      <module name="CitasMedicas-Especialidades" options="-parameters" />
+      <module name="CitasMedicas-Eureka" options="-parameters" />
+      <module name="CitasMedicas-Gateway" options="-parameters" />
+      <module name="CitasMedicas-Paciente" options="-parameters" />
+      <module name="CitasMedicas-gateway" options="-parameters" />
+    </option>
+  </component>
+</project>
