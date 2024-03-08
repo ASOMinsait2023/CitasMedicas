@@ -1,7 +1,8 @@
 <h1> проект череп (Proyect Cherep).</h1>
 
 
-![giphy](https://github.com/Exel-Martin-Escamilla/CitasMedicas/assets/159957497/9a6f4900-c265-4be6-bd0a-79c1cbe762d8)
+![giphy](https://github.com/ASOMinsait2023/CitasMedicas/assets/159957497/c9815e7b-fa76-425b-a503-03b9a55abbe2)
+
 
 
 <h2> Integrantes </h2>
