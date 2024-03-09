@@ -26,17 +26,23 @@ public class TipoCitasService implements ITipoCitasService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public TipoCitas finfById(Long idTipoCita) {
-        return null;
+        return iTipoCitasRepository.findById(idTipoCita).orElseThrow();
     }
 
     @Override
     public TipoCitas saveTC(TipoCitas tipoCitas) {
-        return null;
+        if(!validarCadena(tipoCitas.getTipoCita())) throw new IllegalArgumentException();
+        return iTipoCitasRepository.save(tipoCitas);
     }
 
     @Override
     public boolean deleteTipoCitasById(Long idTipoCitas) {
-        return false;
+        var tipocita=iTipoCitasRepository.findById(idTipoCitas);
+        if(tipocita.isPresent()){
+            iTipoCitasRepository.deleteById(idTipoCitas);
+        return true;
+        }return false;
     }
 }

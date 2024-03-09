@@ -22,7 +22,7 @@ spring:
           predicates:
             - Path=/api/v1/doctores/**
         - id: tipocitas
-          uri: http://localhost:8085
+          uri: http://localhost:7097
           predicates:
             - Path=/api/v1/tipocitas/**
 eureka:

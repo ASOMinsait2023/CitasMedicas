@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 7097
 spring:
   application:
     name: msvc-tipocitas
