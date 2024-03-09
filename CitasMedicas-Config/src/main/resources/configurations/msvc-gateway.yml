@@ -21,6 +21,10 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/api/v1/doctores/**
+        - id: tipocitas
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/v1/tipocitas/**
 eureka:
   intance:
     hotname: eureka-server

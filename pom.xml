@@ -17,6 +17,7 @@
         <module>CitasMedicas-Config</module>
         <module>CitasMedicas-Eureka</module>
         <module>CitasMedicas-Especialidades</module>
+        <module>CitasMedicas-TiposCitas</module>
     </modules>
     <packaging>pom</packaging>
 

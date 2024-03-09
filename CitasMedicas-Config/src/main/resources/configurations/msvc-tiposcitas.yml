@@ -1,0 +1,12 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: msvc-tipocitas
+
+eureka:
+  instance:
+    hostname: msvc-eureka
+  client:
+    service-url:
+      defaultZone: http://msvc-eureka:7092/eureka
