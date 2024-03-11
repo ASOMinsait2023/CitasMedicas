@@ -1,6 +1,6 @@
 package com.minsait.service;
 
-import com.minsait.dtos.DoctorByEspecialidadDTO;
+
 import com.minsait.models.Especialidades;
 import lombok.extern.java.Log;
 
@@ -11,7 +11,7 @@ public interface IEspecialidadService {
     Especialidades findById(Long idEspecialidad);
      Especialidades save(Especialidades especialidades);
      boolean deleteEspecialidadById(Long idespecialidad);
-   DoctorByEspecialidadDTO findDoctoresByEspecialidadesIdI(Long idEspecialidad);
+  // DoctorByEspecialidadDTO findDoctoresByEspecialidadesIdI(Long idEspecialidad);
 
 
 

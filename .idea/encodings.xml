@@ -3,10 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/CitasMedicas-Config/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-Doctor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CitasMedicas-Doctores/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-Especialidades/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-Eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-Gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-Paciente/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CitasMedicas-TipoDeCitas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CitasMedicas-TiposCitas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

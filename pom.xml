@@ -12,12 +12,13 @@
     </parent>
     <modules>
         <module>CitasMedicas-Paciente</module>
-        <module>CitasMedicas-Doctor</module>
         <module>CitasMedicas-Gateway</module>
         <module>CitasMedicas-Config</module>
         <module>CitasMedicas-Eureka</module>
         <module>CitasMedicas-Especialidades</module>
-        <module>CitasMedicas-TiposCitas</module>
+        <module>CitasMedicas-TipoDeCitas</module>
+        <module>CitasMedicas-Doctores</module>
+
     </modules>
     <packaging>pom</packaging>
 

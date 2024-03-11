@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IPacienteService {
 
-    public List<Paciente> findAll();
-    Paciente findById(Long idPasiente);
-    Paciente savePasiente(Paciente paciente);
-    void deletePaciente(Long pacienteId);
-    Paciente updatePaciente(Paciente paciente,Long pacienteId);
+    List<Paciente> findAll();
+    Paciente findById(Long id);
+    Paciente save (Paciente paciente);
+    Paciente update (Paciente paciente);
+    boolean deleteById(Long pacintesId);
 
 
 }

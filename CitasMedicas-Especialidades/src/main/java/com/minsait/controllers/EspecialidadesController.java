@@ -43,7 +43,7 @@ public class EspecialidadesController {
     }
 
     @PutMapping("/especialidad/{id}")
-    ResponseEntity<?> update(@RequestBody Especialidades especialidades,@PathVariable("id") Long especialidadId ){
+    ResponseEntity<?> update(@PathVariable("id") Long especialidadId ,@RequestBody Especialidades especialidades){
         try{
             var especialida=especialidadService.findById(especialidadId);
             especialida.setNombre_especialidad(especialidades.getNombre_especialidad());
@@ -56,10 +56,6 @@ public class EspecialidadesController {
         }
     }
 
-    @GetMapping("/search-by-especialidad/{idEspecialidad}")
-    public ResponseEntity<?> findByEspecialidadId(@PathVariable("idEspecialidad") Long idEspecialidad){
-        return  ResponseEntity.ok(especialidadService.findDoctoresByEspecialidadesIdI(idEspecialidad));
-    }
 
 
 

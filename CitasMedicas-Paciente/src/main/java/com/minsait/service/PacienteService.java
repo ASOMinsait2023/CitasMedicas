@@ -15,6 +15,17 @@ public class PacienteService implements IPacienteService{
     @Autowired
     private IPacienteRepository  pacienteRepository;
 
+    @Autowired
+    private static final String REGEX_VALIDACION = "^(?!\s*$)(?!.*\\d)[a-zA-Z\\s]+$";
+    @Autowired
+    private static final String REGEX_NSS = "^\\d{5}$";
+    private boolean validarCadena(String cadena) {
+        return cadena != null && cadena.matches(REGEX_VALIDACION);
+    }
+    private boolean validarNSS(String cadena) {
+        return cadena != null && cadena.matches(REGEX_NSS);
+    }
+
     @Override
     @Transactional(readOnly = true)
     public List<Paciente> findAll() {
@@ -23,44 +34,34 @@ public class PacienteService implements IPacienteService{
 
     @Override
     @Transactional(readOnly = true)
-    public Paciente findById(Long idPasiente) {
-        return pacienteRepository.findById(idPasiente).orElseThrow();
+    public Paciente findById(Long id) {
+        return pacienteRepository.findById(id).orElseThrow();
     }
 
     @Override
-    @Transactional
-    public Paciente savePasiente(Paciente paciente) {
+    public Paciente save(Paciente paciente) {
+        if(!validarCadena(paciente.getName()))throw  new IllegalArgumentException();
+        if(!validarCadena(paciente.getLastname()))throw  new IllegalArgumentException();
+        if(!validarNSS(paciente.getNss())) throw  new IllegalArgumentException();
         return pacienteRepository.save(paciente);
     }
 
     @Override
     @Transactional
-    public void deletePaciente(Long pacienteId) {
-        var paciente=pacienteRepository.findById(pacienteId);
-        if(paciente.isPresent()){
-            pacienteRepository.deleteById(pacienteId);
-        }
-
+    public Paciente update(Paciente paciente) {
+        if(!validarCadena(paciente.getName()))throw  new IllegalArgumentException();
+        if(!validarCadena(paciente.getLastname()))throw  new IllegalArgumentException();
+        if(!validarNSS(paciente.getNss())) throw  new IllegalArgumentException();
+        return pacienteRepository.save(paciente);
     }
 
     @Override
-    @Transactional
-    public Paciente updatePaciente(Paciente paciente, Long pacienteId) {
-        Paciente pacBD=pacienteRepository.findById(pacienteId).get();
-
-        if(Objects.nonNull(paciente.getName()) && paciente.getName().matches("^(?!\\\\s*$)(?!.*\\\\d)[a-zA-Z]+")){
-            pacBD.setName(paciente.getName());
+    public boolean deleteById(Long pacintesId) {
+        var paciente=pacienteRepository.findById(pacintesId);
+        if(paciente.isPresent()){
+            pacienteRepository.deleteById(pacintesId);
+            return true;
         }
-        if(Objects.nonNull(paciente.getLastname()) &&
-        paciente.getLastname().matches("^(?!\\\\s*$)(?!.*\\\\d)[a-zA-Z]+")){
-            pacBD.setLastname(paciente.getLastname());
-        }
-        if(Objects.nonNull(paciente.getNss()) &&
-        paciente.getNss().matches("")){
-            pacBD.setNss(paciente.getNss());
-        }
-        return pacienteRepository.save(pacBD);
+        return false;
     }
-
-
 }

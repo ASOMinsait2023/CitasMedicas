@@ -1,8 +1,7 @@
 server:
-  port: 8082
-spring:
+  port: 8084
   application:
-    name: msvc-paciente
+    name: msvc-tipocitas
 
 eureka:
   instance:

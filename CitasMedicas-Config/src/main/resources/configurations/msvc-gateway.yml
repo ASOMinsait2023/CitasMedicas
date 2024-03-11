@@ -10,19 +10,19 @@ spring:
              enable: true
         routes:
         - id: pacientes
-          uri: http://localhost:8081
+          uri: http://localhost:8082
           predicates:
             - Path=/api/v1/pacientes/**
         - id: especialidades
-          uri: http://localhost:7090
+          uri: http://localhost:8083
           predicates:
             - Path=/api/v1/especialidades/**
         - id: doctores
-          uri: http://localhost:8083
+          uri: http://localhost:8085
           predicates:
             - Path=/api/v1/doctores/**
         - id: tipocitas
-          uri: http://localhost:7097
+          uri: http://localhost:8084
           predicates:
             - Path=/api/v1/tipocitas/**
 eureka:
