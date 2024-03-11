@@ -18,7 +18,22 @@ public class EspecialidadesController {
 
     @GetMapping
     public ResponseEntity<?> findAllEspecialidades(){
-        return ResponseEntity.ok(especialidadService.findAll());
+        try{
+            return ResponseEntity.ok(especialidadService.findAll());
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @GetMapping("/{idEspecialidad}")
+    ResponseEntity<?> findById(@PathVariable Long idEspecialidad){
+        try{
+            var especialidades = especialidadService.findById(idEspecialidad);
+            return ResponseEntity.ok(especialidades);
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping("/especialidad")
@@ -31,8 +46,8 @@ public class EspecialidadesController {
             return ResponseEntity.badRequest().build();
         }
     }
-    @DeleteMapping("/especialidad/{id}")
-    ResponseEntity<?> deleteEspecialidadById(@PathVariable("id") Long especialidadId){
+    @DeleteMapping("{especialidadId}")
+    ResponseEntity<?> deleteEspecialidadById(@PathVariable Long especialidadId){
         try{
         var delte=especialidadService.deleteEspecialidadById(especialidadId);
         return new ResponseEntity<>(delte,HttpStatus.OK);
@@ -41,8 +56,8 @@ public class EspecialidadesController {
         }
     }
 
-    @PutMapping("/especialidades/{id}")
-    ResponseEntity<?> update(@RequestBody Especialidades especialidades,@PathVariable("id") Long especialidadId ){
+    @PutMapping("/{especialidadId}")
+    ResponseEntity<?> update(@RequestBody Especialidades especialidades,@PathVariable Long especialidadId ){
         try{
             var especialida=especialidadService.findById(especialidadId);
             especialida.setNombre_especialidad(especialidades.getNombre_especialidad());

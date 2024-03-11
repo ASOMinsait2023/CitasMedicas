@@ -10,7 +10,7 @@ import java.util.List;
 @FeignClient(name = "msvc-especialidades", url = "http://localhost:7095/api/v1/especialidades")
 public interface IEspecialidadesClient {
 
-    @GetMapping("/search-by-especialidad/{idEspecialidad}")
-    List<EspecialidadesDTO> findByIdEspecialidad (@PathVariable Long idEspecialidad);
+    @GetMapping("/search-by-especialidad/{idDoctor}")
+    List<EspecialidadesDTO> findByIdEspecialidad (@PathVariable Long idDoctor);
 
 }

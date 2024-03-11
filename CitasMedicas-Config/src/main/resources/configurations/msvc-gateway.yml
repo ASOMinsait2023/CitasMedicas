@@ -21,6 +21,10 @@ spring:
           uri: http://localhost:7095
           predicates:
             -Path=/api/v1/especialidades/**
+        - id: citas
+          uri: http://localhost:7095
+          predicates:
+            -Path=/api/v1/citas/**
 eureka:
   intance:
     hotname: eureka-server

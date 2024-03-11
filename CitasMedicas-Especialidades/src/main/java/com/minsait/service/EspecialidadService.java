@@ -13,6 +13,12 @@ import java.util.Optional;
 public class EspecialidadService implements IEspecialidadService{
     @Autowired
     private IEspecialidadRepository especialidadRepository;
+
+    @Autowired
+    private static final String REGEX_VALIDACION = "^(?!\s*$)(?!.*\\d)[a-zA-Z\\s]+$";
+    private boolean validarCadena(String cadena) {
+        return cadena != null && cadena.matches(REGEX_VALIDACION);
+    }
     @Override
     @Transactional(readOnly = true)
     public List<Especialidades> findAll() {
@@ -28,19 +34,19 @@ public class EspecialidadService implements IEspecialidadService{
     @Override
     @Transactional
     public Especialidades save(Especialidades especialidades) {
-        //Especialidades espeBD=especialidadRepository.save(especialidades).setNombre_especialidad();
+        if (!validarCadena(especialidades.getNombre_especialidad())) throw new IllegalArgumentException();
         return especialidadRepository.save(especialidades);
     }
 
     @Override
     @Transactional
-    public boolean deleteEspecialidadById(Long idespecialidad) {
-var especialida=especialidadRepository.findById(idespecialidad);
-if(especialida.isPresent()){
-        especialidadRepository.deleteById(idespecialidad);
-return true;
-}
-return false;
+    public boolean deleteEspecialidadById(Long idEspecialidad) {
+        var especialida = especialidadRepository.findById(idEspecialidad);
+        if (especialida.isPresent()) {
+            especialidadRepository.deleteById(idEspecialidad);
+            return true;
+        }
+        return false;
     }
 
     @Override

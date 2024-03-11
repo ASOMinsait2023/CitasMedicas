@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CitasMedicas-Especialidades" />
-        <module name="CitasMedicas-Doctor" />
-        <module name="CitasMedicas-Config" />
         <module name="CitasMedicas-Paciente" />
         <module name="CitasMedicas-Eureka" />
+        <module name="CitasMedicas-Citas" />
         <module name="CitasMedicas-gateway" />
+        <module name="CitasMedicas-Doctor" />
+        <module name="CitasMedicas-Config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CitasMedicas" options="" />
+      <module name="CitasMedicas-Citas" options="-parameters" />
       <module name="CitasMedicas-Config" options="-parameters" />
       <module name="CitasMedicas-Doctor" options="-parameters" />
       <module name="CitasMedicas-Especialidades" options="-parameters" />
