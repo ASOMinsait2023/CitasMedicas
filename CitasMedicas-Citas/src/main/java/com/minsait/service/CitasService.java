@@ -4,17 +4,21 @@ import com.minsait.models.Citas;
 import com.minsait.repository.ICitasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
+
 @Service
 public class CitasService implements ICitasService {
-
     @Autowired
     private ICitasRepository citasRepository;
 
     @Autowired
     private static final String REGEX_VALIDACION = "^(?!\s*$)(?!.*\\d)[a-zA-Z\\s]+$";
+
     private boolean validarCadena(String cadena) {
         return cadena != null && cadena.matches(REGEX_VALIDACION);
     }
@@ -50,6 +54,13 @@ public class CitasService implements ICitasService {
         }
         return false;
     }
+
+    @Override
+    public List<Citas> findStatus() {
+        return citasRepository.findStatus();
+    }
+
+
 
 
 }

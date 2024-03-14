@@ -9,4 +9,4 @@ eureka:
     hostname: msvc-eureka
   client:
     service-url:
-      defaultZone: http://msvc-eureka:7092/eureka
+      defaultZone: http://localhost:7092/eureka

@@ -1,7 +1,7 @@
-package com.misait.controllers;
+package com.minsait.controllers;
 
-import com.misait.models.TipoCitas;
-import com.misait.service.ITipoCitasService;
+import com.minsait.models.TipoCitas;
+import com.minsait.service.ITipoCitasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,17 +24,17 @@ public class TipoCitasControllers {
         }
     }
 
-    @GetMapping("/tipocita/{idtipocita}")
-    ResponseEntity<?> findById(@PathVariable("idtipocita") Long id){
+    @GetMapping("{idtipocita}")
+    ResponseEntity<?> findById(@PathVariable Long idtipocita){
         try {
-            var tipocita=iTipoCitasService.findById(id);
+            var tipocita=iTipoCitasService.findById(idtipocita);
             return ResponseEntity.ok(tipocita);
         }catch (Exception e){
             return ResponseEntity.notFound().build();
         }
     }
 
-    @PostMapping("/tipocita")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     ResponseEntity<?> saveTipoCitas(@RequestBody TipoCitas tipoCitas){
         try{
@@ -44,10 +44,10 @@ public class TipoCitasControllers {
             return ResponseEntity.badRequest().build();
         }
     }
-@PutMapping("/tipocita/{id}")
-    ResponseEntity<?> update(@PathVariable("id")Long id,@RequestBody TipoCitas tipoCitas){
+@PutMapping("/{idtipocita}")
+    ResponseEntity<?> update(@PathVariable Long idtipocita,@RequestBody TipoCitas tipoCitas){
         try {
-            var citast=iTipoCitasService.findById(id);
+            var citast=iTipoCitasService.findById(idtipocita);
             citast.setTipo_cita(tipoCitas.getTipo_cita());
             return new ResponseEntity<>(iTipoCitasService.save(citast),HttpStatus.CREATED);
         }catch (NoSuchElementException e) {
@@ -58,10 +58,10 @@ public class TipoCitasControllers {
         }
 }
 
-@DeleteMapping("/tipocita/{id}")
-    ResponseEntity<?> delete(@PathVariable("id") Long id){
+@DeleteMapping("/{idtipocita}")
+    ResponseEntity<?> delete(@PathVariable Long idtipocita){
         try{
-            return ResponseEntity.ok(iTipoCitasService.deleteById(id));
+            return ResponseEntity.ok(iTipoCitasService.deleteById(idtipocita));
         }catch (NoSuchElementException e){
             return ResponseEntity.notFound().build();
         }

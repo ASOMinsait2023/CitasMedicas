@@ -1,6 +1,6 @@
-package com.misait.repository;
+package com.minsait.repository;
 
-import com.misait.models.TipoCitas;
+import com.minsait.models.TipoCitas;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ITipoCitasRepository extends JpaRepository<TipoCitas,Long> {

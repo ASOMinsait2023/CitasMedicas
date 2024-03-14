@@ -1,4 +1,4 @@
-package com.misait.models;
+package com.minsait.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

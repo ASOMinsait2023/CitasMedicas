@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+
 
 @Data
 @NoArgsConstructor
@@ -18,12 +23,25 @@ public class Citas {
     private Long idCitas;
     @Column(name= "descripcion")
     private String descripcion;
-    @Column(name= "idtipocita")
-    private String idTipoCita;
-    @Column(name= "idpaciente")
-    private String idPaciente;
-    @Column(name= "iddoctor")
-    private String idDoctor;
+
+
+    @Column(name= "fechahoracita")
+    private LocalDateTime fechaCita;
+    @Column(name = "estatus")
+    private Byte estatus;
+
+    @ManyToOne
+    @JoinColumn (name= "idtipocita")
+    private TipoCitas idTipoCita;
+
+    @ManyToOne
+    @JoinColumn(name= "idpaciente")
+    private Paciente idPaciente;
+    @ManyToOne
+    @JoinColumn(name= "iddoctor")
+    private Doctor idDoctor;
+
+
 
 
 

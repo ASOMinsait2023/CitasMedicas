@@ -1,8 +1,8 @@
 server:
-  port: 7091
+  port: 7097
 spring:
   application:
-    name: msvc-doctor
+    name: msvc-tipocitas
 
 eureka:
   instance:

@@ -2,24 +2,31 @@ package com.minsait.controller;
 
 
 import com.minsait.models.Citas;
-import com.minsait.repository.ICitasRepository;
+
 import com.minsait.service.ICitasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/v1/citas")
 public class CitaController {
-
     @Autowired
     private ICitasService citasService;
 
+    @GetMapping("/citasHoy")
+    public List<Citas> finadHoy(){
+        return citasService.findStatus();
+    }
+
+
+
     @GetMapping
-    public ResponseEntity<?> findAllEspecialidades(){
+    public ResponseEntity<?> findAllCitas(){
         try {
             return ResponseEntity.ok(citasService.findAll());
         } catch (Exception e){
@@ -60,15 +67,18 @@ public class CitaController {
     ResponseEntity<?> update (@PathVariable Long idCitas, @RequestBody Citas citas) {
         try {
             var agendar = citasService.findById(idCitas);
-            agendar.setDescripcion(agendar.getDescripcion());
-            agendar.setIdTipoCita(agendar.getIdTipoCita());
-            agendar.setIdPaciente(agendar.getIdPaciente());
-            agendar.setIdDoctor(agendar.getIdDoctor());
+            agendar.setDescripcion(citas.getDescripcion());
+            agendar.setFechaCita(citas.getFechaCita());
+            agendar.setEstatus(citas.getEstatus());
+            agendar.setIdTipoCita(citas.getIdTipoCita());
+            agendar.setIdPaciente(citas.getIdPaciente());
+            agendar.setIdDoctor(citas.getIdDoctor());
             return new ResponseEntity<>(citasService.save(agendar), HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
+
 
 
 }

@@ -1,7 +1,7 @@
-package com.misait.service;
+package com.minsait.service;
 
-import com.misait.models.TipoCitas;
-import com.misait.repository.ITipoCitasRepository;
+import com.minsait.models.TipoCitas;
+import com.minsait.repository.ITipoCitasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +16,7 @@ public class TipoCitasService implements ITipoCitasService{
     private boolean validarCadena(String cadena) {
         return cadena != null && cadena.matches(REGEX_VALIDACION);
     }
+
     @Override
     @Transactional(readOnly = true)
     public List<TipoCitas> findAll() {
@@ -29,18 +30,27 @@ public class TipoCitasService implements ITipoCitasService{
     }
 
     @Override
+    @Transactional
     public TipoCitas save(TipoCitas tipoCitas) {
         if(!validarCadena(tipoCitas.getTipo_cita()))throw  new IllegalArgumentException();
         return iTipoCitasRepository.save(tipoCitas);
     }
 
     @Override
+    @Transactional
+    public TipoCitas update(TipoCitas tipoCitas) {
+        if (validarCadena(tipoCitas.getTipo_cita()))          throw new IllegalArgumentException();
+        return iTipoCitasRepository.save(tipoCitas);
+    }
+
+    @Override
+    @Transactional
     public boolean deleteById(Long idTipoCitas) {
-        var tipo=iTipoCitasRepository.findById(idTipoCitas);
-        if(tipo.isPresent()){
-        iTipoCitasRepository.deleteById(idTipoCitas);
-            return true;}{
-            return false;
+        var tipoCitas = iTipoCitasRepository.findById(idTipoCitas);
+        if (tipoCitas.isPresent()){
+            iTipoCitasRepository.deleteById(idTipoCitas);
+            return true;
         }
+        return false;
     }
 }
