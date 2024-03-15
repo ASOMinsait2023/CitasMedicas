@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,15 +18,23 @@ public class Citas {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "idcita")
     private Long idCitas;
-    @Column(name= "descripcion")
+    @Column(name = "descripcion")
     private String descripcion;
-    @Column(name= "idtipocita")
-    private String idTipoCita;
-    @Column(name= "idpaciente")
-    private String idPaciente;
-    @Column(name= "iddoctor")
-    private String idDoctor;
+    @Column(name = "estatus")
+    private Byte status;
+    @Column(name = "fechahoracita")
+    private LocalDateTime fechaCita;
 
+    @ManyToOne
+    @JoinColumn(name = "idtipocita")
+    private TipoCitas idTipoCita;
+
+    @ManyToOne
+    @JoinColumn(name = "idpaciente")
+    private Paciente idPaciente;
+    @ManyToOne
+    @JoinColumn(name = "iddoctor")
+    private Doctor idDoctor;
 
 
 }

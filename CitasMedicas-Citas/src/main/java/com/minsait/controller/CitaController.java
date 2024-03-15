@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -18,12 +19,27 @@ public class CitaController {
     @Autowired
     private ICitasService citasService;
 
+    @GetMapping("/contarCitasHoy")
+    public List<String> contar(){
+        return citasService.fincontar() ;
+    }
+    @GetMapping("/citasHoy")
+    public ResponseEntity<?> findAllCitasHoy(){
+        try {
+            return ResponseEntity.ok(citasService.findCitasFechas());
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
     @GetMapping
     public ResponseEntity<?> findAllEspecialidades(){
         try {
             return ResponseEntity.ok(citasService.findAll());
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al obtener citas");
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -60,10 +76,12 @@ public class CitaController {
     ResponseEntity<?> update (@PathVariable Long idCitas, @RequestBody Citas citas) {
         try {
             var agendar = citasService.findById(idCitas);
-            agendar.setDescripcion(agendar.getDescripcion());
-            agendar.setIdTipoCita(agendar.getIdTipoCita());
-            agendar.setIdPaciente(agendar.getIdPaciente());
-            agendar.setIdDoctor(agendar.getIdDoctor());
+            agendar.setDescripcion(citas.getDescripcion());
+            agendar.setIdTipoCita(citas.getIdTipoCita());
+            agendar.setIdPaciente(citas.getIdPaciente());
+            agendar.setIdDoctor(citas.getIdDoctor());
+            agendar.setFechaCita(citas.getFechaCita());
+            agendar.setStatus(citas.getStatus());
             return new ResponseEntity<>(citasService.save(agendar), HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();

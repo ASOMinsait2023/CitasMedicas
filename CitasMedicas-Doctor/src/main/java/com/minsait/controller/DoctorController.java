@@ -3,6 +3,7 @@ package com.minsait.controller;
 
 import com.minsait.models.Doctor;
 import com.minsait.service.IDoctorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +13,14 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/v1/doctores")
+@Slf4j
 public class DoctorController {
     @Autowired
     IDoctorService doctorService;
 
     @GetMapping
-    public ResponseEntity<?> findAllDoctores(){
+    public ResponseEntity<?> findAll(){
         return ResponseEntity.ok(doctorService.findAll());
-
     }
 
     @GetMapping("/{idDoctor}")
@@ -66,10 +67,14 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/search-by-especialidad/{idDoctor}")
-    ResponseEntity<?> findDoctoresByEspecialidadId(@PathVariable Long idDoctor){
-        return ResponseEntity.ok(doctorService.findEspecialidadesByDoctor(idDoctor));
+  /*  @GetMapping("/by-especialidad/{especialidadId}")
+    public ResponseEntity<?> findByIdEspecialidad(@PathVariable Long especialidadId){
+        var responce=doctorService.findByIdEspecialidad(especialidadId);
+        if(responce.isEmpty()){
+            throw  new NoSuchElementException("No value presente");
+        }
+        return ResponseEntity.ok(responce);
     }
-
+  * */
 
 }

@@ -3,6 +3,7 @@ package com.minsait.service;
 import com.minsait.models.Citas;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ICitasService {
     List<Citas> findAll();
@@ -12,4 +13,6 @@ public interface ICitasService {
     Citas update (Citas citas);
 
     boolean deleteById(Long idCitas);
+    List<Citas> findCitasFechas();
+    List<String> fincontar();
 }

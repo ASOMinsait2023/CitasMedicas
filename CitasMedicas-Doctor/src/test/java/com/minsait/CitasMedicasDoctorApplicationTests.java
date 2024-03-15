@@ -1,14 +1,13 @@
 package com.minsait;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 @SpringBootTest
-@EnableDiscoveryClient//THIS ANNOTATION IS USED TO MAKE THE SERVICE REGISTER ITSELF WITH THE DISCOVERY SERVER
-@EnableFeignClients//THIS ANNOTATION IS USED TO ENABLE THE FEIGN CLIEN
-
+@SpringJUnitConfig(CitasMedicasDoctorApplicationTests.class)
 class CitasMedicasDoctorApplicationTests {
 
 	@Test

@@ -62,23 +62,17 @@ public class EspecialidadesController {
             var especialida=especialidadService.findById(especialidadId);
             especialida.setNombre_especialidad(especialidades.getNombre_especialidad());
             return new ResponseEntity<>(especialidadService.save(especialida),HttpStatus.CREATED);
-        }catch (NoSuchElementException e) {
-            return ResponseEntity.notFound().build();
         }catch (Exception e){
             return ResponseEntity.badRequest().build();
 
         }
     }
 
-    @GetMapping("/search-by-especialidad/{idEspecialidad}")
-    public ResponseEntity<?> findByIdCourse(@PathVariable Long idEspecialidad){
-        var responce = especialidadService.findByEspecialidades(idEspecialidad);
-        if (responce.isEmpty()){
-            throw new NoSuchElementException("No value precent");
-        }
-        return  ResponseEntity.ok(responce);
 
+ /*   @GetMapping("/by-doctor/{especialidadId}")
+    ResponseEntity<?> findDoctorByCourseId(@PathVariable Long especialidadId){
+        return ResponseEntity.ok(especialidadService.findDoctorByEspecialidadId(especialidadId));
     }
-
+ * */
 
 }

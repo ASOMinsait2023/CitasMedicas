@@ -22,4 +22,6 @@ public class Paciente {
     private String lastname;
     private String nss;
 
+
+
 }

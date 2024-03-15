@@ -4,9 +4,9 @@ import com.minsait.models.Citas;
 import com.minsait.repository.ICitasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CitasService implements ICitasService {
 
@@ -15,6 +15,7 @@ public class CitasService implements ICitasService {
 
     @Autowired
     private static final String REGEX_VALIDACION = "^(?!\s*$)(?!.*\\d)[a-zA-Z\\s]+$";
+
     private boolean validarCadena(String cadena) {
         return cadena != null && cadena.matches(REGEX_VALIDACION);
     }
@@ -31,13 +32,13 @@ public class CitasService implements ICitasService {
 
     @Override
     public Citas save(Citas citas) {
-        if (!validarCadena(citas.getDescripcion()))      throw new IllegalArgumentException();
+        if (!validarCadena(citas.getDescripcion()))   throw new IllegalArgumentException();
         return citasRepository.save(citas);
     }
 
     @Override
     public Citas update(Citas citas) {
-        if (validarCadena(citas.getDescripcion()))      throw new IllegalArgumentException();
+        if (validarCadena(citas.getDescripcion()))   throw new IllegalArgumentException();
         return citasRepository.save(citas);
     }
 
@@ -49,6 +50,16 @@ public class CitasService implements ICitasService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Citas> findCitasFechas() {
+        return citasRepository.findCitasFechas();
+    }
+
+    @Override
+    public List<String> fincontar() {
+        return citasRepository.fincontar();
     }
 
 

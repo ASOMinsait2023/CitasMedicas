@@ -1,5 +1,7 @@
 package com.minsait.service;
 
+import com.minsait.client.IDoctorClient;
+import com.minsait.dtos.DoctorByEspecialidadDTO;
 import com.minsait.models.Especialidades;
 import com.minsait.repository.IEspecialidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,8 @@ import java.util.Optional;
 public class EspecialidadService implements IEspecialidadService{
     @Autowired
     private IEspecialidadRepository especialidadRepository;
-
+@Autowired
+private IDoctorClient iDoctorClient;
     @Autowired
     private static final String REGEX_VALIDACION = "^(?!\s*$)(?!.*\\d)[a-zA-Z\\s]+$";
     private boolean validarCadena(String cadena) {
@@ -49,9 +52,18 @@ public class EspecialidadService implements IEspecialidadService{
         return false;
     }
 
-    @Override
-    public Optional<Especialidades> findByEspecialidades(Long idEspecialidad) {
-        return especialidadRepository.findById(idEspecialidad);
-    }
+   /*
+   *  @Override
+    public DoctorByEspecialidadDTO findDoctorByEspecialidadId(Long idEspecialidad) {
+        var espe=especialidadRepository.findById(idEspecialidad).orElseThrow();
+        var DoctorDTOList=iDoctorClient.findByIdEspecialidad(idEspecialidad);
 
+
+        return DoctorByEspecialidadDTO.builder()
+                .idespecialidades(espe.getIdespecialidades())
+                .nombre_especialidad(espe.getNombre_especialidad())
+                .doctorDTOS(DoctorDTOList)
+                .build();
+
+    }*/
 }

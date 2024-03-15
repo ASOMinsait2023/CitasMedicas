@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CitasMedicas-Especialidades" />
+        <module name="CitasMedicas-TipoDeCitas" />
         <module name="CitasMedicas-Paciente" />
         <module name="CitasMedicas-Eureka" />
         <module name="CitasMedicas-Citas" />
@@ -30,6 +31,7 @@
       <module name="CitasMedicas-Eureka" options="-parameters" />
       <module name="CitasMedicas-Gateway" options="-parameters" />
       <module name="CitasMedicas-Paciente" options="-parameters" />
+      <module name="CitasMedicas-TipoDeCitas" options="-parameters" />
       <module name="CitasMedicas-gateway" options="-parameters" />
     </option>
   </component>
