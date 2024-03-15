@@ -8,6 +8,5 @@ import java.util.Optional;
 
 public interface IEspecialidadRepository extends JpaRepository<Especialidades,Long> {
 
-    @Bean
-    Optional<Especialidades> findById(Long idEspecialidad);
+
 }

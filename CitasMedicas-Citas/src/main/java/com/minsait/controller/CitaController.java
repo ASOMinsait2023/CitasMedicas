@@ -24,7 +24,6 @@ public class CitaController {
     }
 
 
-
     @GetMapping
     public ResponseEntity<?> findAllCitas(){
         try {

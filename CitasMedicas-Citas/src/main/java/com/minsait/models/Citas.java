@@ -27,6 +27,7 @@ public class Citas {
 
     @Column(name= "fechahoracita")
     private LocalDateTime fechaCita;
+    //private DateTime fechaCita;
     @Column(name = "estatus")
     private Byte estatus;
 

@@ -66,9 +66,13 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/search-by-especialidad/{idDoctor}")
-    ResponseEntity<?> findDoctoresByEspecialidadId(@PathVariable Long idDoctor){
-        return ResponseEntity.ok(doctorService.findEspecialidadesByDoctor(idDoctor));
+    @GetMapping("/search-by-especialidad/{especialidadId}")
+    public ResponseEntity<?> findByIdEspecialidad(@PathVariable Long especialidadId) {
+        var response = doctorService.findByIdEspecialidad(especialidadId);
+        if(response.isEmpty()){
+            throw new NoSuchElementException("No value presente");
+        }
+        return ResponseEntity.ok(response);
     }
 
 

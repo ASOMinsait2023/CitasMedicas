@@ -1,5 +1,6 @@
 package com.minsait.service;
 
+import com.minsait.dtos.DotorByEspecialidadDTOS;
 import com.minsait.models.Especialidades;
 
 
@@ -11,7 +12,7 @@ public interface IEspecialidadService {
     Especialidades findById(Long idEspecialidad);
      Especialidades save(Especialidades especialidades);
      boolean deleteEspecialidadById(Long idEspecialidad);
-     Optional<Especialidades> findByEspecialidades(Long idEspecialidad);
+     DotorByEspecialidadDTOS findDoctorByEspecialidadId(Long idEspecialidad);
 
 
 
