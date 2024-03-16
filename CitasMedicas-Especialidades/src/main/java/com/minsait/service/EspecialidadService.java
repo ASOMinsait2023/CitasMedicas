@@ -52,6 +52,11 @@ private IDoctorClient iDoctorClient;
         return false;
     }
 
+    @Override
+    public List<String> findContarEspecialidad(String nombre_especialidad) {
+        return especialidadRepository.findContarEspecialidad(nombre_especialidad);
+    }
+
    /*
    *  @Override
     public DoctorByEspecialidadDTO findDoctorByEspecialidadId(Long idEspecialidad) {

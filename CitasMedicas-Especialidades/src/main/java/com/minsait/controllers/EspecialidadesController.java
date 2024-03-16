@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -15,6 +16,10 @@ import java.util.NoSuchElementException;
 public class EspecialidadesController {
     @Autowired
     IEspecialidadService especialidadService;
+    @GetMapping("/contarPorEspecialidad/{nombre_especialidad}")
+    public List<String> contarPorEspecialidad(String nombre_especialidad){
+        return especialidadService.findContarEspecialidad(nombre_especialidad);
+    }
 
     @GetMapping
     public ResponseEntity<?> findAllEspecialidades(){

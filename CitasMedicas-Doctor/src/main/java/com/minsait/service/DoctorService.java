@@ -60,6 +60,11 @@ public class DoctorService implements IDoctorService{
         return false;
     }
 
+    @Override
+    public List<String> findContarEspecialidad(String nombre_especialidad) {
+        return doctoresRepository.findContarEspecialidad(nombre_especialidad);
+    }
+
 /*
 *     @Override
     public List<Doctor> findByIdEspecialidad(Long especialidadId) {

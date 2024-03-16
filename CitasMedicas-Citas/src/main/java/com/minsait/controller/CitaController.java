@@ -23,6 +23,7 @@ public class CitaController {
     public List<String> contar(){
         return citasService.fincontar() ;
     }
+
     @GetMapping("/citasHoy")
     public ResponseEntity<?> findAllCitasHoy(){
         try {
