@@ -62,5 +62,10 @@ public class CitasService implements ICitasService {
         return citasRepository.fincontar();
     }
 
+    @Override
+    public List<Citas> findCitasFechasEspe(String fecha) {
+        return citasRepository.findCitasFechasEspe(fecha);
+    }
+
 
 }

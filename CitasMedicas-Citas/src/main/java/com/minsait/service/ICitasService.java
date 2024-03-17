@@ -15,4 +15,5 @@ public interface ICitasService {
     boolean deleteById(Long idCitas);
     List<Citas> findCitasFechas();
     List<String> fincontar();
+    List<Citas> findCitasFechasEspe(String fecha);
 }

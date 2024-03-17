@@ -18,6 +18,10 @@ public class CitaController {
 
     @Autowired
     private ICitasService citasService;
+    @GetMapping("/citasHoyEspe/{fecha}")
+    public List<Citas> findAllCitasHoyEspe(@PathVariable String fecha){
+        return citasService.findCitasFechasEspe(fecha);
+    }
 
     @GetMapping("/contarCitasHoy")
     public List<String> contar(){

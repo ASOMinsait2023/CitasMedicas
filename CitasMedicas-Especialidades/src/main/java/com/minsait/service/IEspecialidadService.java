@@ -13,7 +13,7 @@ public interface IEspecialidadService {
      Especialidades save(Especialidades especialidades);
      boolean deleteEspecialidadById(Long idEspecialidad);
 //DoctorByEspecialidadDTO findDoctorByEspecialidadId(Long idEspecialidad);
-List<String> findContarEspecialidad(String nombre_especialidad);
+
 
 
 

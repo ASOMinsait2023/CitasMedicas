@@ -12,6 +12,5 @@ import java.util.Optional;
 public interface IEspecialidadRepository extends JpaRepository<Especialidades,Long> {
 
 //    Optional<Especialidades> findById(Long idEspecialidad);
-@Query(value = "select COUNT(*) from doctores as d inner join especialidades as e on d.idespecialidad=e.idespecialidad where e.nombre_especialidad=?1",nativeQuery = true)
-List<String> findContarEspecialidad(@PathVariable String nombre_especialidad);
+
 }

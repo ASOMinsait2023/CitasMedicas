@@ -19,9 +19,9 @@ public class DoctorController {
     @Autowired
     IDoctorService doctorService;
 
-    @GetMapping("/contarPorEspecialidad/{nombre_especialidad}")
-    public List<String> contarPorEspecialidad(String nombre_especialidad){
-        return doctorService.findContarEspecialidad(nombre_especialidad);
+    @GetMapping("/contarPorEspecialidad/{idEspecialidad}")
+    public List<String> contarPorEspecialidad(@PathVariable Long idEspecialidad){
+        return doctorService.findContarEspecialidad(idEspecialidad);
     }
 
     @GetMapping

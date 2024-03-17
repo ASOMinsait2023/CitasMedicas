@@ -18,7 +18,7 @@ public interface IDoctorService {
     boolean deleteById(Long idDoctor);
 
     //List<Doctor> findByIdEspecialidad(Long especialidadId);
-    List<String> findContarEspecialidad(String nombre_especialidad);
+    List<String> findContarEspecialidad(Long idEspecialidad);
 
 
 

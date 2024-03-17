@@ -16,10 +16,7 @@ import java.util.NoSuchElementException;
 public class EspecialidadesController {
     @Autowired
     IEspecialidadService especialidadService;
-    @GetMapping("/contarPorEspecialidad/{nombre_especialidad}")
-    public List<String> contarPorEspecialidad(String nombre_especialidad){
-        return especialidadService.findContarEspecialidad(nombre_especialidad);
-    }
+
 
     @GetMapping
     public ResponseEntity<?> findAllEspecialidades(){

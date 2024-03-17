@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface IDoctoresRepository  extends JpaRepository<Doctor, Long> {
     //List<Doctor> findAllByEspecialidadId(Long especialidadId);
-    @Query(value = "select COUNT(*) from doctores as d inner join especialidades as e on d.idespecialidad=e.idespecialidad where e.nombre_especialidad  like %?1%",nativeQuery = true)
-    List<String> findContarEspecialidad(String nombre_especialidad);
+    @Query(value = " select COUNT(*) from doctores  where idEspecialidad=?1",nativeQuery = true)
+    List<String> findContarEspecialidad( Long idEspecialidad);
 }
