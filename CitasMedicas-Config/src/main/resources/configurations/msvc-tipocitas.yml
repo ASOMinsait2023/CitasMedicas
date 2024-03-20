@@ -1,0 +1,12 @@
+server:
+  port: 7097
+spring:
+  application:
+    name: msvc-tipocitas
+
+eureka:
+  instance:
+    hostname: msvc-eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:7092/eureka
