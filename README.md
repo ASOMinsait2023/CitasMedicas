@@ -27,7 +27,7 @@ Descargar los archivos completos y una ves terminada la descarga ejecutar de la 
   
 <br>
 
-Este proyecto contine un poco de seguridad te dejo usuario y contrasela:
+Este proyecto contine un poco de seguridad te dejo usuario y contraseña:
 
 - Usuario: exel
 - Contraseña: 12345
