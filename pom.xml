@@ -17,6 +17,9 @@
         <module>CitasMedicas-Config</module>
         <module>CitasMedicas-Eureka</module>
         <module>CitasMedicas-Especialidades</module>
+        <module>CitasMedicas-Citas</module>
+        <module>CitasMedicas-TipoDeCitas</module>
+
     </modules>
     <packaging>pom</packaging>
     <groupId>org.example</groupId>

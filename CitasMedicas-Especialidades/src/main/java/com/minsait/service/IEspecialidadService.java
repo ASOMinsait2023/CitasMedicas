@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IEspecialidadService {
-     List<Especialidades> findAll();
+    List<Especialidades> findAll();
     Especialidades findById(Long idEspecialidad);
      Especialidades save(Especialidades especialidades);
-     boolean deleteEspecialidadById(Long idespecialidad);
-     Optional<Especialidades> findByEspecialidades(Long idEspecialidad);
+     boolean deleteEspecialidadById(Long idEspecialidad);
+//DoctorByEspecialidadDTO findDoctorByEspecialidadId(Long idEspecialidad);
 
 
 

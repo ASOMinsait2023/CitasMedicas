@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.minsait.CitasMedicasEspecialidadesApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.635 s -- in com.minsait.CitasMedicasEspecialidadesApplicationTests
