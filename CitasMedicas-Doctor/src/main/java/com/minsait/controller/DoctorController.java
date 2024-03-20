@@ -3,23 +3,30 @@ package com.minsait.controller;
 
 import com.minsait.models.Doctor;
 import com.minsait.service.IDoctorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/v1/doctores")
+@Slf4j
 public class DoctorController {
     @Autowired
     IDoctorService doctorService;
 
-    @GetMapping
-    public ResponseEntity<?> findAllDoctores(){
-        return ResponseEntity.ok(doctorService.findAll());
+    @GetMapping("/contarPorEspecialidad/{idEspecialidad}")
+    public List<String> contarPorEspecialidad(@PathVariable Long idEspecialidad){
+        return doctorService.findContarEspecialidad(idEspecialidad);
+    }
 
+    @GetMapping
+    public ResponseEntity<?> findAll(){
+        return ResponseEntity.ok(doctorService.findAll());
     }
 
     @GetMapping("/{idDoctor}")
@@ -64,11 +71,6 @@ public class DoctorController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
-    }
-
-    @GetMapping("/search-by-especialidad/{idDoctor}")
-    ResponseEntity<?> findDoctoresByEspecialidadId(@PathVariable Long idDoctor){
-        return ResponseEntity.ok(doctorService.findEspecialidadesByDoctor(idDoctor));
     }
 
 

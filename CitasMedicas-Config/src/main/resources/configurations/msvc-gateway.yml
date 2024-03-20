@@ -1,14 +1,15 @@
 server:
-  port: 8080
+  port: 7080
+
 spring:
   application:
     name : msvc-gateway
-    cloud:
-      gateway:
-        discovery:
-           locator:
-             enable: true
-        routes:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
         - id: pacientes
           uri: http://localhost:7090
           predicates:
@@ -16,16 +17,25 @@ spring:
         - id: doctores
           uri: http://localhost:7091
           predicates:
-            -Path=/api/v1/doctores/**
+          - Path=/api/v1/doctores/**
         - id: especialidades
           uri: http://localhost:7095
           predicates:
-            -Path=/api/v1/especialidades/**
+          - Path=/api/v1/especialidades/**
+        - id: citas
+          uri: http://localhost:7096
+          predicates:
+          - Path=/api/v1/citas/**
+        - id: tipocitas
+          uri: http://localhost:7097
+          predicates:
+          - Path=/api/v1/tipocitas/**
+
 eureka:
   intance:
     hotname: eureka-server
-    client :
-      register-with-eureka: false
-      fetch_registry: true
-      service-url :
-       defaultZone: http://localhost:7092/eureka
+  client :
+    register-with-eureka: false
+    fetch_registry: true
+    service-url :
+      defaultZone: http://msvc-eureka:${server.port}/eureka

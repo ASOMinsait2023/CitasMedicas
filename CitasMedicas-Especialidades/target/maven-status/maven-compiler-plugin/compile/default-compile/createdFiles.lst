@@ -1,0 +1,7 @@
+com\minsait\CitasMedicasEspecialidadesApplication.class
+com\minsait\service\IEspecialidadService.class
+com\minsait\controller\EspecialidadesController.class
+com\minsait\repository\IEspecialidadRepository.class
+com\minsait\advisors\ControllerAdvisor.class
+com\minsait\service\EspecialidadService.class
+com\minsait\models\Especialidades.class

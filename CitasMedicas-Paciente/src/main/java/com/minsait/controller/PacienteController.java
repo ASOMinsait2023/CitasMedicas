@@ -2,6 +2,7 @@ package com.minsait.controller;
 
 import com.minsait.models.Paciente;
 import com.minsait.service.IPacienteService;
+import com.minsait.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,17 @@ public class PacienteController {
     @Autowired
     IPacienteService pacienteService;
 
+    public PacienteController(PacienteService pacienteService) {
+        this.pacienteService = pacienteService;
+    }
+
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> findAllPacientes() {
         try {
             return ResponseEntity.ok(pacienteService.findAll());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -66,4 +72,7 @@ public class PacienteController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+
+
 }

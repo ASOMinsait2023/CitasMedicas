@@ -21,8 +21,7 @@ public class Doctor {
     @Column(name = "apellidos")
     private String lastname;
     @Column(name = "estatus")
-    private byte status;
-
+    private Byte status;
     @ManyToOne
     @JoinColumn(name = "idespecialidad")
     private Especialidades idespecialidad;
