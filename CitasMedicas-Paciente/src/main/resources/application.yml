@@ -1,9 +1,0 @@
-spring:
-  config:
-    import: optional:configserver:http://localhost:8888
-  application:
-    name: msvc-paciente
-  datasource:
-    password:
-    url: jdbc:mysql://127.0.0.1:3306/citasmedicas
-    username: root
