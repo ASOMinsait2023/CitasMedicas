@@ -12,6 +12,24 @@ Este proyecto es un microservicio donde va a simular una pagina web para  el hos
 pueden elegir que tipo de cita tomar ya que los medicos tienen diferentes especialidades.</p>
 
 <h2> Instalacion  </h2>
-<h3> Coming Soon. </h3>
+Descargar los archivos completos y una ves terminada la descarga ejecutar de la siguiente forma:
+
+<br>
+
+- Config
+- Eureka
+- Paciente
+- Doctor
+- Especialidad
+- Citas
+- Tipo de Citas
+- Gateway
+  
+<br>
+
+Este proyecto contine un poco de seguridad te dejo usuario y contrasela:
+
+- Usuario: exel
+- Contraseña: 12345
 
 
